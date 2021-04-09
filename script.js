@@ -1,7 +1,5 @@
 // Drawing Functionality 
 let canvas = document.querySelector("canvas");
-canvas.height = window.innerHeight;
-canvas.width = (window.innerWidth * 0.8);
 let ctx = canvas.getContext('2d');
 let penColor = "black";
 ctx.strokeStyle = penColor;
@@ -12,6 +10,15 @@ let lastX = 0;
 let lastY = 0;
 
 let isDrawing = false;
+
+// resize the canvas to fill browser window dynamically
+window.addEventListener('resize', resizeCanvas, false);
+
+function resizeCanvas() {
+        canvas.width = window.innerWidth *0.8;
+        canvas.height = window.innerHeight;
+}
+resizeCanvas();
 
 function draw(e) {
     if (!isDrawing) {
@@ -84,3 +91,28 @@ function changeStroke(e) {
 strokeBtns.forEach((btn) => {
     btn.addEventListener("click", changeStroke)
 })
+
+
+// (function() {
+//     var canvas = document.getElementById('canvas'),
+//             context = canvas.getContext('2d');
+
+//     // resize the canvas to fill browser window dynamically
+//     window.addEventListener('resize', resizeCanvas, false);
+
+//     function resizeCanvas() {
+//             canvas.width = window.innerWidth;
+//             canvas.height = window.innerHeight;
+
+//             /**
+//              * Your drawings need to be inside this function otherwise they will be reset when 
+//              * you resize the browser window and the canvas goes will be cleared.
+//              */
+//             drawStuff(); 
+//     }
+//     resizeCanvas();
+
+//     function drawStuff() {
+//             // do your drawing stuff here
+//     }
+// })();
