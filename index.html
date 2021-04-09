@@ -4,51 +4,20 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="">
-  <style>body, html { margin: 0; padding: 0; box-sizing: border-box;}</style>
+  <link rel=stylesheet href='style.css'>
   <title>Document</title>
 </head>
 <body>
-  <canvas width="100" height="100" style = "background-color: red;"></canvas>
-  <script>
-      let canvas = document.querySelector("canvas");
-      canvas.height = window.innerHeight;
-      canvas.width = window.innerWidth;
-      let ctx = canvas.getContext('2d');
-    //   console.log(ctx)
-    ctx.strokeStyle = "black";
-    ctx.lineCap = "round";
-    ctx.lineJoin = "round";
-
-    let lastX = 0;
-    let lastY = 0;
-
-    let isDrawing = false;
-
-    function draw(e) {
-        // isDrawing = true;
-        if (!isDrawing) {
-            return;
-        }
-        
-        ctx.beginPath();
-        ctx.moveTo(lastX, lastY);
-        ctx.lineTo(e.offsetX, e.offsetY);
-        ctx.stroke();
-        lastX = e.offsetX;
-        lastY = e.offsetY;
-    }
-
-    document.addEventListener("mousedown",  () => {
-        isDrawing = true;
-    });
-    document.addEventListener("mousemove", draw);
-    document.addEventListener("mouseout", () => {
-        isDrawing = false;
-    });
-    document.addEventListener("mouseup", () => {
-        isDrawing = false;
-    });
-
-  </script>
+  <div class="container">
+    <canvas style = "background-color: red;"></canvas>
+    <div class='div' style="background-color: hotpink">
+    <button data-number='one'><img src='images/one.svg'></button>
+    <button data-number='two'><img src='images/two.svg'></button>
+    <button data-number='three'><img src='images/three.svg'></button>
+    <button data-number='four'><img src='images/four.svg'></button>
+    <button data-number='five'><img src='images/five.svg'></button>
+    </div>
+</div>
+  <script src='script.js'></script>
 </body>
 </html>
