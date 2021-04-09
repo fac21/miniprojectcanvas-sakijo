@@ -40,12 +40,19 @@ canvas.addEventListener("mouseup", () => {
 // Add images
 let imgButtons = document.querySelectorAll('.imgAdd');
 let isImage = false;
+let lastImage
 imgButtons.forEach((btn) => btn.addEventListener("click", addImage))
 
 function addImage(e) {
-  ctx.clearRect(0, 0, canvas.width, canvas.height) //clears canvas
-  let img = e.target;
-  ctx.drawImage(img, 0, 0, canvas.width, canvas.height)
+  ctx.clearRect(0, 0, canvas.width, canvas.height)
+  if (e.target !== lastImage){
+    let img = e.target;
+    ctx.drawImage(img, 0, 0, canvas.width, canvas.height)
+  }
+
+  lastImage = e.target
+  isImage = !isImage;
+  
 }
 
 // Change colour
