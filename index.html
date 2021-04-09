@@ -4,11 +4,51 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="">
-  <link rel="stylesheet" type="text/css" href="styles.css">
+  <style>body, html { margin: 0; padding: 0; box-sizing: border-box;}</style>
   <title>Document</title>
 </head>
 <body>
-  <canvas></canvas>
-  <script src="scripts.js"></script>
+  <canvas width="100" height="100" style = "background-color: red;"></canvas>
+  <script>
+      let canvas = document.querySelector("canvas");
+      canvas.height = window.innerHeight;
+      canvas.width = window.innerWidth;
+      let ctx = canvas.getContext('2d');
+    //   console.log(ctx)
+    ctx.strokeStyle = "black";
+    ctx.lineCap = "round";
+    ctx.lineJoin = "round";
+
+    let lastX = 0;
+    let lastY = 0;
+
+    let isDrawing = false;
+
+    function draw(e) {
+        // isDrawing = true;
+        if (!isDrawing) {
+            return;
+        }
+        
+        ctx.beginPath();
+        ctx.moveTo(lastX, lastY);
+        ctx.lineTo(e.offsetX, e.offsetY);
+        ctx.stroke();
+        lastX = e.offsetX;
+        lastY = e.offsetY;
+    }
+
+    document.addEventListener("mousedown",  () => {
+        isDrawing = true;
+    });
+    document.addEventListener("mousemove", draw);
+    document.addEventListener("mouseout", () => {
+        isDrawing = false;
+    });
+    document.addEventListener("mouseup", () => {
+        isDrawing = false;
+    });
+
+  </script>
 </body>
 </html>
