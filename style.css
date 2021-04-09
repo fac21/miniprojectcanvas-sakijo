@@ -1,4 +1,4 @@
-body, html { 
+* { 
   margin: 0; 
   padding: 0; 
   box-sizing: border-box;
@@ -7,6 +7,63 @@ body, html {
   display: flex;
 }
 
-.div{
+aside {
   width: 200px;
+  background-color: hotpink;
 }
+
+.imgAdd {
+  width: 100px;
+  height: 100px;
+}
+
+img { 
+  width: 100%;
+}
+
+header {
+  height: 5rem;
+}
+
+h1 {
+  padding-left: 1rem;
+}
+
+button {
+  cursor: pointer;
+}
+
+.colorBtn {
+  width: 30px;
+  height: 30px;
+  padding: 0;
+  border-radius: 50%;
+  border: solid 1px;
+}
+
+.imgAddBtns {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-bottom: 4rem;
+  border-bottom: solid white 10px;
+}
+
+.colorBtns, .strokeBtns {
+  padding-bottom: 1rem;
+}
+
+.stack-sm > * + * {
+  margin-top: 0.5rem;
+}
+
+.stack-md > * + * {
+  margin-top: 1rem;
+}
+
+.stack-lg > * + * {
+  margin-top: 2rem;
+}
+
+.stack-xl > * + * {
+  margin-top: 4rem;

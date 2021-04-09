@@ -3,10 +3,11 @@ let canvas = document.querySelector("canvas");
 canvas.height = window.innerHeight;
 canvas.width = (window.innerWidth * 0.8);
 let ctx = canvas.getContext('2d');
-ctx.strokeStyle = "black";
+let penColor = "black";
+ctx.strokeStyle = penColor;
 ctx.lineCap = "round";
 ctx.lineJoin = "round";
-ctx.lineWidth = 25;
+ctx.lineWidth = 2;
 let lastX = 0;
 let lastY = 0;
 
@@ -36,13 +37,43 @@ canvas.addEventListener("mouseup", () => {
 });
 
 
-// Add Characters
-let buttons = document.querySelectorAll('button');
+// Add images
+let imgButtons = document.querySelectorAll('.imgAdd');
 let isImage = false;
-buttons.forEach((btn) => btn.addEventListener("click", addImage))
+imgButtons.forEach((btn) => btn.addEventListener("click", addImage))
 
 function addImage(e) {
   ctx.clearRect(0, 0, canvas.width, canvas.height) //clears canvas
   let img = e.target;
-  ctx.drawImage(img, 10, 10)
+  ctx.drawImage(img, 0, 0, canvas.width, canvas.height)
 }
+
+// Change colour
+
+let colourBtns = document.querySelectorAll('.colorBtn');
+
+function changeColor(e) {
+    penColor = e.target.id;
+    ctx.strokeStyle = penColor;
+}
+
+colourBtns.forEach((btn) => {
+    btn.style.backgroundColor = btn.id;
+    // btn.style.borderColor = btn.id;
+    btn.addEventListener("click", changeColor)
+})
+
+// change Stroke
+
+
+let strokeBtns = document.querySelectorAll('.penStroke');
+
+function changeStroke(e) {
+    let stroke = e.target.getAttribute("data-stroke");
+    console.log(stroke);
+    ctx.lineWidth = stroke;
+}
+
+strokeBtns.forEach((btn) => {
+    btn.addEventListener("click", changeStroke)
+})

@@ -5,19 +5,51 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="">
   <link rel=stylesheet href='style.css'>
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
   <title>Document</title>
 </head>
 <body>
-  <div class="container">
-    <canvas style = "background-color: red;"></canvas>
-    <div class='div' style="background-color: hotpink">
-    <button data-number='one'><img src='images/one.svg'></button>
-    <button data-number='two'><img src='images/two.svg'></button>
-    <button data-number='three'><img src='images/three.svg'></button>
-    <button data-number='four'><img src='images/four.svg'></button>
-    <button data-number='five'><img src='images/five.svg'></button>
+    <header>
+        <h1>Name Here</h1>
+    </header>
+    <div class="container">
+        <canvas></canvas>
+        <aside class='button-panel'>
+            <div class="imgAddBtns stack-sm">
+                <button class="imgAdd"><img src='images/mindfulimg2.jpg'></button>
+                <button class="imgAdd"><img src='images/mindfulimage.jpg'></button>
+                <button class="imgAdd"><img src='images/mindfulimg3.jpg'></button>
+                <button class="imgAdd"><img src='images/mindfulimg4.jpg'></button>
+                <button class="imgAdd"><img src='images/mindfulimg5.jpg'></button>
+            </div>
+            <div class="colorBtns stack-sm ">
+                <button class="colorBtn" id="red"></button>
+                <button class="colorBtn" id="green"></button>
+                <button class="colorBtn" id="orange"></button>
+                <button class="colorBtn" id="yellow"></button>
+                <button class="colorBtn" id="blue"></button>
+                <button class="colorBtn" id="purple"></button>
+                <button class="colorBtn" id="brown"></button>
+                <button class="colorBtn" id="pink"></button>
+            </div>
+            <div class="strokeBtns stack-sm">
+                <button class="penStroke" data-stroke="2">
+                    <i class="fas fa-pencil-alt"></i>
+                </button>
+                <button class="penStroke" data-stroke="5">
+                    <i class="fas fa-pen-fancy"></i>
+                </button>
+                <button class="penStroke" data-stroke="10">
+                    <i class="fas fa-paint-brush"></i>
+                </button>
+                <button class="penStroke" data-stroke="20">
+                    <i class="fas fa-brush"></i>
+                </button>
+            </div>
+            
+           
+        </aside>
     </div>
-</div>
   <script src='script.js'></script>
 </body>
 </html>
